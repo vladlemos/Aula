@@ -65,7 +65,7 @@ function listarProdutos(){
         template +=     '<span id="p1" class="product__name"> '+ produtos[i].descricao+'</span>';
         template +=     '<span id="c1" class="product__color">'+produtos[i].cor+'</span>';
         template +=     '<span id="s1" class="product__size">'+produtos[i].tamanho+'</span>';
-        template +=     '<span id="v1" class="product__value">'+produtos[i].qtd+'</span>*<input type="number" name="" id="" value="'+produtos[i].preco+'"> = <span>$'+(produtos[i].preco *produtos[i].qtd )+'</span>';
+        template +=     '<span id="v1" class="product__value">'+produtos[i].preco+'</span>*<input type="number" name="" id="" value="'+produtos[i].qtd+'"> = <span>$'+(produtos[i].preco *produtos[i].qtd )+'</span>';
         template += '</div>';
     }
 
@@ -74,20 +74,9 @@ function listarProdutos(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function validaSexo(_id){
+    alert(_id);
+}
 
 
 
