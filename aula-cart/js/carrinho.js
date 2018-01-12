@@ -3,38 +3,41 @@ var produtos = [
     {//0
         codigo : 50,
         imagem : {
-            src     : '/img/camiseta.png',
+            src     : './img/camiseta.png',
             alt     : "texto alternativo",
             title   : "título da imagem"
         },
-        desricao    : 'Puma Golf Raglan Tech Polo Tee',
+        descricao    : 'Puma Golf Raglan Tech Polo Tee',
         cor         : 'Purple',
         preco       : 72,
-        qtd         : 3
+        qtd         : 3,
+        tamanho     : 'G'
     },
     {//1
         codigo : 99,
         imagem : {
-            src     : '/img/camiseta.png',
+            src     : './img/camiseta.png',
             alt     : "texto alternativo",
             title   : "título da imagem"
         },
-        desricao    : 'Nike Mens Running Shoe',
+        descricao    : 'Nike Mens Running Shoe',
         cor         : 'White',
         preco       : 50,
-        qtd         : 1
+        qtd         : 1,
+        tamanho     : 'M'
     },
     {//2
         codigo : 287,
         imagem : {
-            src     : '/img/camiseta.png',
+            src     : './img/camiseta.png',
             alt     : "texto alternativo",
             title   : "título da imagem"
         },
-        desricao    : 'DC Mens Axis Snowboard Jacket',
+        descricao    : 'DC Mens Axis Snowboard Jacket',
         cor         : 'White',
         preco       : 89.97,
-        qtd         : 2
+        qtd         : 2,
+        tamanho     : 'P'
     },
 ]
 
@@ -58,11 +61,11 @@ function listarProdutos(){
         
         template += '<div class="product">';
         template +=     '<i class="fa fa-times-circle"></i>';
-        template +=     '<img src="img/camiseta.png" alt="t-shirt" class="product__img">';
-        template +=     '<span id="p1" class="product__name"></span>';
+        template +=     '<img src="'+ produtos[i].imagem.src +'" alt="t-shirt" class="product__img">';
+        template +=     '<span id="p1" class="product__name"> '+ produtos[i].descricao+'</span>';
         template +=     '<span id="c1" class="product__color">'+produtos[i].cor+'</span>';
-        template +=     '<span id="s1" class="product__size"></span>';
-        template +=     '<span id="v1" class="product__value"></span>*<input type="number" name="" id=""> = <span>$216</span>';
+        template +=     '<span id="s1" class="product__size">'+produtos[i].tamanho+'</span>';
+        template +=     '<span id="v1" class="product__value">'+produtos[i].qtd+'</span>*<input type="number" name="" id="" value="'+produtos[i].preco+'"> = <span>$'+(produtos[i].preco *produtos[i].qtd )+'</span>';
         template += '</div>';
     }
 
