@@ -9,7 +9,7 @@ var produtos = [
         },
         descricao    : 'Puma Golf Raglan Tech Polo Tee',
         cor         : 'Purple',
-        preco       : 72,
+        preco       : 200.97,
         qtd         : 3,
         tamanho     : 'G'
     },
@@ -56,20 +56,46 @@ var produtos = [
 function listarProdutos(){
  //Gerar o template através do array de objetos
     var template = "";
-    
+    var totalGeral = 0; //importante dominar quando a variável é criada fora;
     for(var i = 0; i < produtos.length; i++){
-        
+        var subtotal = produtos[i].preco *produtos[i].qtd;
+        totalGeral += subtotal;
+
         template += '<div class="product">';
         template +=     '<i class="fa fa-times-circle"></i>';
         template +=     '<img src="'+ produtos[i].imagem.src +'" alt="t-shirt" class="product__img">';
         template +=     '<span id="p1" class="product__name"> '+ produtos[i].descricao+'</span>';
         template +=     '<span id="c1" class="product__color">'+produtos[i].cor+'</span>';
         template +=     '<span id="s1" class="product__size">'+produtos[i].tamanho+'</span>';
-        template +=     '<span id="v1" class="product__value">'+produtos[i].preco+'</span>*<input type="number" name="" id="" value="'+produtos[i].qtd+'"> = <span>$'+(produtos[i].preco *produtos[i].qtd )+'</span>';
+        template +=     '<span id="v1" class="product__value">'+produtos[i].preco.toFixed(2)+'</span>*<input type="number" name="" id="'+ produtos[i].codigo +'" onchange="atualizarQuantidade(this.value,this.id)" value="'+produtos[i].qtd+'"> = <span id="total-"'+produtos[i].codigo+'">$'+subtotal.toFixed(2)+'</span>';
         template += '</div>';
     }
 
     document.getElementById("products").innerHTML = template;
+    document.getElementById("total-geral").innerHTML = "Subtotal: <strong>R$ </strong>"+totalGeral.toFixed(2);
+}
+
+function atualizarQuantidade(_qtd, _codigo){
+    
+    for (var index=0; index < produtos.length; index++){
+    
+        if(produtos[index].codigo == _codigo){
+            console.log(produtos[index]);
+            //atualizar a quantidade
+            produtos[index].qtd = _qtd;
+            //atualizar o total do produto
+            var totalProduto = produtos[index].qtd * produtos[index].preco;
+            var codProd = 'total-'+ produtos[index].codigo;
+            document.getElementById(codProd).innerHTML = "<strong>R$"
+
+            console.log(produtos[index]);
+            //atualizar o total geral
+            
+            break;
+        }
+        
+    }
+    
 }
 
 
